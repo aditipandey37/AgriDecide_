@@ -7,13 +7,13 @@ Original file is located at
     https://colab.research.google.com/drive/1GKQJ5cYcx6pS2rpmJhPUvNzkpgtkzezh
 """
 
-!pip install streamlit pyngrok pandas
+
 
 from pyngrok import ngrok
 
 ngrok.set_auth_token("3DcdH3sZpXszPV5djHNiAu27dXx_3J2nYXpgPA3i2QVZkuwE4")
 
-!pip install streamlit pyngrok pandas
+
 
 # Commented out IPython magic to ensure Python compatibility.
 # 
@@ -252,7 +252,7 @@ ngrok.set_auth_token("3DcdH3sZpXszPV5djHNiAu27dXx_3J2nYXpgPA3i2QVZkuwE4")
 # 
 #
 
-!streamlit run app.py &>/content/logs.txt &
+
 
 from pyngrok import ngrok
 
