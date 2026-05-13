@@ -111,7 +111,7 @@ with col2:
         st.session_state.page = 3
         st.rerun()
 # ---------- PAGE 3 ----------
-elif st.session_state.page == 3:
+if st.session_state.page == 3:
 
    st.subheader(" Profit Comaprison ")
 
