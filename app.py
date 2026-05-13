@@ -114,7 +114,7 @@ with col2:
 
 elif st.session_state.page == 3:
 
-st.subheader("📊 Profit Comparison")
+   st.subheader("📊 Profit Comparison")
 
 q = st.session_state.quantity
 p = st.session_state.price
