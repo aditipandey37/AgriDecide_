@@ -1,11 +1,11 @@
----------- PAGE CONFIG ----------
+#---------- PAGE CONFIG ----------
 
 import streamlit as st
 import time
 import random
 import pandas as pd
 
----------- PAGE CONFIG ----------
+#---------- PAGE CONFIG ----------
 
 st.set_page_config(
 page_title="AgriDecide AI",
@@ -13,18 +13,18 @@ page_icon="🌾",
 layout="centered"
 )
 
----------- SESSION ----------
+#---------- SESSION ----------
 
 if "page" not in st.session_state:
 st.session_state.page = 1
 
----------- CUSTOM CSS ----------
+#---------- CUSTOM CSS ----------
 
 st.markdown("""
 
 """, unsafe_allow_html=True)
 
----------- MAIN CONTAINER ----------
+#---------- MAIN CONTAINER ----------
 
 st.markdown('', unsafe_allow_html=True)
 
@@ -37,7 +37,7 @@ st.markdown(
 unsafe_allow_html=True
 )
 
----------- PAGE 1 ----------
+#---------- PAGE 1 ----------
 
 if st.session_state.page == 1:
 
@@ -67,7 +67,7 @@ if st.button("🤖 Get AI Recommendation", use_container_width=True):
 
     st.session_state.page = 2
     st.rerun()
----------- PAGE 2 ----------
+#---------- PAGE 2 ----------
 
 elif st.session_state.page == 2:
 
@@ -171,7 +171,7 @@ if st.button("✅ Confirm Booking", use_container_width=True):
 if st.button("⬅ Back", use_container_width=True):
     st.session_state.page = 3
     st.rerun()
----------- FOOTER ----------
+#---------- FOOTER ----------
 
 st.markdown(
 'Smart Farming Choose AgriDecide',
