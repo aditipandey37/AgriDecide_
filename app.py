@@ -151,8 +151,10 @@ with col2:
         st.session_state.page = 4
         st.rerun()
 
+st.stop()
+
 # ---------- PAGE 4 ----------
-elif st.session_state.page == 4:
+if st.session_state.page == 4:
 
     st.subheader("🏭 Nearby Processing Unit")
 
