@@ -71,7 +71,7 @@ if st.button("🤖 Get AI Recommendation", use_container_width=True):
 
 elif st.session_state.page == 2:
 
-st.subheader("🤖 AI Recommendation")
+   st.subheader("🤖 AI Recommendation")
 
 q = st.session_state.quantity
 p = st.session_state.price
