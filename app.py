@@ -41,7 +41,7 @@ unsafe_allow_html=True
 
 if st.session_state.page == 1:
 
-st.subheader("📥 Crop Input")
+   st.subheader("📥 Crop Input")
 
 crop = st.text_input("Crop Name", "Wheat")
 
