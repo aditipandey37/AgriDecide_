@@ -1,9 +1,11 @@
+---------- PAGE CONFIG ----------
+
 import streamlit as st
 import time
 import random
 import pandas as pd
 
-# ---------- PAGE CONFIG ----------
+---------- PAGE CONFIG ----------
 
 st.set_page_config(
 page_title="AgriDecide AI",
@@ -11,95 +13,34 @@ page_icon="🌾",
 layout="centered"
 )
 
-# ---------- SESSION ----------
+---------- SESSION ----------
 
 if "page" not in st.session_state:
 st.session_state.page = 1
 
-# ---------- CUSTOM CSS ----------
+---------- CUSTOM CSS ----------
 
 st.markdown("""
 
-<style>
-
-html, body, [class*="css"] {
-    font-family: 'Arial';
-}
-
-.main {
-    background-color: #f4f7fb;
-}
-
-.container {
-    max-width: 420px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 25px;
-    background: white;
-    box-shadow: 0px 4px 18px rgba(0,0,0,0.12);
-}
-
-.card {
-    padding: 18px;
-    border-radius: 18px;
-    background: #ffffff;
-    margin-bottom: 18px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
-}
-
-.highlight {
-    border-left: 6px solid #2e7d32;
-    background: #f1fff3;
-}
-
-.title {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: #2e7d32;
-    margin-bottom: 5px;
-}
-
-.subtitle {
-    text-align: center;
-    color: gray;
-    margin-bottom: 25px;
-}
-
-.metric {
-    font-size: 22px;
-    font-weight: bold;
-    color: #2e7d32;
-}
-
-.footer {
-    text-align: center;
-    color: gray;
-    margin-top: 20px;
-}
-
-</style>
-
 """, unsafe_allow_html=True)
 
-# ---------- MAIN CONTAINER ----------
+---------- MAIN CONTAINER ----------
 
-st.markdown('<div class="container">', unsafe_allow_html=True)
+st.markdown('', unsafe_allow_html=True)
 
-# ---------- HEADER ----------
+---------- HEADER ----------
 
-st.markdown('<div class="title">🌾 AgriDecide AI</div>', unsafe_allow_html=True)
+st.markdown('🌾 AgriDecide AI', unsafe_allow_html=True)
 
 st.markdown(
-'<div class="subtitle">Smart AI Decision Support for Farmers</div>',
+'Smart AI Decision Support for Farmers',
 unsafe_allow_html=True
 )
 
-# ---------- PAGE 1 ----------
+---------- PAGE 1 ----------
 
 if st.session_state.page == 1:
 
-```
 st.subheader("📥 Crop Input")
 
 crop = st.text_input("Crop Name", "Wheat")
@@ -126,20 +67,16 @@ if st.button("🤖 Get AI Recommendation", use_container_width=True):
 
     st.session_state.page = 2
     st.rerun()
-```
-
-# ---------- PAGE 2 ----------
+---------- PAGE 2 ----------
 
 elif st.session_state.page == 2:
 
-```
 st.subheader("🤖 AI Recommendation")
 
 q = st.session_state.quantity
 p = st.session_state.price
 
 sell = q * p
-store = q * (p + random.randint(150, 250))
 process = q * (p + random.randint(450, 650))
 
 st.markdown('<div class="card highlight">', unsafe_allow_html=True)
@@ -173,13 +110,10 @@ with col2:
     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 3
         st.rerun()
-```
-
-# ---------- PAGE 3 ----------
+---------- PAGE 3 ----------
 
 elif st.session_state.page == 3:
 
-```
 st.subheader("📊 Profit Comparison")
 
 q = st.session_state.quantity
@@ -217,13 +151,10 @@ with col2:
     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 4
         st.rerun()
-```
-
-# ---------- PAGE 4 ----------
+---------- PAGE 4 ----------
 
 elif st.session_state.page == 4:
 
-```
 st.subheader("🏭 Nearby Processing Unit")
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
@@ -240,13 +171,11 @@ if st.button("✅ Confirm Booking", use_container_width=True):
 if st.button("⬅ Back", use_container_width=True):
     st.session_state.page = 3
     st.rerun()
-```
-
-# ---------- FOOTER ----------
+---------- FOOTER ----------
 
 st.markdown(
-'<div class="footer">Smart Farming Choose AgriDecide</div>',
+'Smart Farming Choose AgriDecide',
 unsafe_allow_html=True
 )
 
-st.markdown('</div>', unsafe_allow_html=True)
+st.markdown('', unsafe_allow_html=True)
