@@ -43,118 +43,117 @@ if st.session_state.page == 1:
 
    st.subheader("📥 Crop Input")
 
-crop = st.text_input("Crop Name", "Wheat")
+   crop = st.text_input("Crop Name", "Wheat")
 
-quantity = st.number_input(
-    "Quantity (Quintals)",
-    min_value=1,
-    max_value=1000,
-    value=50
-)
+   quantity = st.number_input(
+      "Quantity (Quintals)",
+      min_value=1,
+      max_value=1000,
+      value=50
+   )
 
-mandi_price = random.randint(2000, 2400)
+   mandi_price = random.randint(2000, 2400)
 
-st.info(f"📡 Live Mandi Price: ₹{mandi_price}/quintal")
+   st.info(f"📡 Live Mandi Price: ₹{mandi_price}/quintal")
 
-st.session_state.crop = crop
-st.session_state.quantity = quantity
-st.session_state.price = mandi_price
+   st.session_state.crop = crop
+   st.session_state.quantity = quantity
+   st.session_state.price = mandi_price
 
-if st.button("🤖 Get AI Recommendation", use_container_width=True):
-
-    with st.spinner("Analyzing market trends using AI..."):
+   if st.button("🤖 Get AI Recommendation", use_container_width=True):
+      
+      with st.spinner("Analyzing market trends using AI..."):
         time.sleep(2)
 
-    st.session_state.page = 2
-    st.rerun()
+      st.session_state.page = 2
+      st.rerun()
 #---------- PAGE 2 ----------
 
 elif st.session_state.page == 2:
 
    st.subheader("🤖 AI Recommendation")
 
-q = st.session_state.quantity
-p = st.session_state.price
+   q = st.session_state.quantity
+   p = st.session_state.price
 
-sell = q * p
-process = q * (p + random.randint(450, 650))
+   sell = q * p
+   process = q * (p + random.randint(450, 650))
 
-st.markdown('<div class="card highlight">', unsafe_allow_html=True)
+   st.markdown('<div class="card highlight">', unsafe_allow_html=True)
 
-st.success("✅ Best Option: PROCESS")
+   st.success("✅ Best Option: PROCESS")
 
-st.write("### 📈 AI Confidence: 92%")
+   st.write("### 📈 AI Confidence: 92%")
 
-st.metric(
+   st.metric(
     label="Expected Extra Profit",
     value=f"₹{process - sell}"
-)
+   )
 
-st.write("### 📌 Reason")
+   st.write("### 📌 Reason")
 
-st.write(
-    "Processed products are currently in high demand "
-    "with better market margins."
-)
+   st.write(
+      "Processed products are currently in high demand "
+      "with better market margins."
+   )
 
-st.markdown('</div>', unsafe_allow_html=True)
+   st.markdown('</div>', unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
+   col1, col2 = st.columns(2)
 
-with col1:
-    if st.button("⬅ Back", use_container_width=True, key="back_page2"):
-        st.session_state.page = 1
-        st.rerun()
+   with col1:
+      if st.button("⬅ Back", use_container_width=True, key="back_page2"):
+         st.session_state.page = 1
+         st.rerun()
 
-with col2:
-    if st.button("Next ➡", use_container_width=True):
+  with col2:
+     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 3
         st.rerun()
 # ---------- PAGE 3 ----------
-    elif st.session_state.page == 3:
+elif st.session_state.page == 3:
+   st.subheader(" Profit Comaprison ")
 
-      st.subheader(" Profit Comaprison ")
+   q = st.session_state.quantity
+   p = st.session_state.price
 
-q = st.session_state.quantity
-p = st.session_state.price
+   sell = q * p
+   store = q * (p + 200)
+   process = q * (p + 500)
 
-sell = q * p
-store = q * (p + 200)
-process = q * (p + 500)
+   st.markdown('<div class="card">', unsafe_allow_html=True)
 
-st.markdown('<div class="card">', unsafe_allow_html=True)
+   st.write(f"### 💰 Sell Directly: ₹{sell}")
+   st.write(f"### 🏬 Store & Sell Later: ₹{store}")
+   st.write(f"### 🏭 Process Crop: ₹{process}")
 
-st.write(f"### 💰 Sell Directly: ₹{sell}")
-st.write(f"### 🏬 Store & Sell Later: ₹{store}")
-st.write(f"### 🏭 Process Crop: ₹{process}")
+   st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
+   chart_data = pd.DataFrame({
+      "Strategy": ["Sell", "Store", "Process"],
+      "Profit": [sell, store, process]
+   })
 
-chart_data = pd.DataFrame({
-    "Strategy": ["Sell", "Store", "Process"],
-    "Profit": [sell, store, process]
-})
+   st.bar_chart(chart_data.set_index("Strategy"))
 
-st.bar_chart(chart_data.set_index("Strategy"))
+   st.success(f"🚀 Additional Profit from Processing: ₹{process - sell}")
 
-st.success(f"🚀 Additional Profit from Processing: ₹{process - sell}")
+   col1, col2 = st.columns(2)
 
-col1, col2 = st.columns(2)
+   with col1:
+      if st.button("⬅ Back", use_container_width=True, key="back_page3"):
+         st.session_state.page = 2
+         st.rerun()
 
-with col1:
-    if st.button("⬅ Back", use_container_width=True, key="back_page3"):
-        st.session_state.page = 2
-        st.rerun()
-
-with col2:
+  with col2:
     if st.button("Next ➡", use_container_width=True, key="next_page4"):
-        st.session_state.page = 4
-        st.rerun()
+         st.session_state.page = 4
+         st.rerun()
 
-st.stop()
+
 
 # ---------- PAGE 4 ----------
-if st.session_state.page == 4:
+elif st.session_state.page == 4:
 
     st.subheader("🏭 Nearby Processing Unit")
 
