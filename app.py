@@ -110,8 +110,7 @@ with col2:
     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 3
         st.rerun()
-#---------- PAGE 3 ----------
-
+# ---------- PAGE 3 ----------
 elif st.session_state.page == 3:
 
    st.subheader("📊 Profit Comparison")
@@ -151,7 +150,7 @@ with col2:
     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 4
         st.rerun()
-#---------- PAGE 4 ----------
+# ---------- PAGE 4 ----------
 
 elif st.session_state.page == 4:
 
