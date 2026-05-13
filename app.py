@@ -28,7 +28,7 @@ st.markdown("""
 
 st.markdown('', unsafe_allow_html=True)
 
----------- HEADER ----------
+#---------- HEADER ----------
 
 st.markdown('🌾 AgriDecide AI', unsafe_allow_html=True)
 
