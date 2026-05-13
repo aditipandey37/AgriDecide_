@@ -110,7 +110,7 @@ with col2:
     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 3
         st.rerun()
----------- PAGE 3 ----------
+#---------- PAGE 3 ----------
 
 elif st.session_state.page == 3:
 
@@ -151,11 +151,11 @@ with col2:
     if st.button("Next ➡", use_container_width=True):
         st.session_state.page = 4
         st.rerun()
----------- PAGE 4 ----------
+#---------- PAGE 4 ----------
 
 elif st.session_state.page == 4:
 
-st.subheader("🏭 Nearby Processing Unit")
+   st.subheader("🏭 Nearby Processing Unit")
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
