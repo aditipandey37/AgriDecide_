@@ -154,7 +154,7 @@ with col2:
 
    elif st.session_state.page == 4:
 
-      st.subheader("🏭 Nearby Processing Unit")
+       st.subheader("🏭 Nearby Processing Unit")
 
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
