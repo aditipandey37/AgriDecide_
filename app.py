@@ -147,7 +147,7 @@ with col1:
         st.rerun()
 
 with col2:
-    if st.button("Next ➡", use_container_width=True):
+    if st.button("Next ➡", use_container_width=True, key="next_page4"):
         st.session_state.page = 4
         st.rerun()
 
